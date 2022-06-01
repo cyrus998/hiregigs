@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+
+<body>
+    <script>
+        function toggleCart() {
+            var x = document.getElementById("itemform");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">CYRUS.GG</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/admin.html">Admin Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"> Account </a>
+                        <ul class="dropdown-menu bg-dark ms-auto" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item text-white" href="#">Profile</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-white" href="#">Settings</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="rounded dropdown-item bg-danger" id="logout" href="#">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <form id="itemform">
+        <div class="container bg-white rounded w-50">
+            <div class="boxbox px-3 py-3">
+
+                <input type="text" class="form-control mt-3" id="name" placeholder="Name" required>
+                <input type="hidden" class="form-control mt-3" id="document" name="document">
+                <p class="hints">Name</p>
+
+                <input type="text" class="form-control mt-3" id="number" placeholder="Contact No." required>
+                <input type="hidden" class="form-control mt-3" id="document" name="document">
+                <p class="hints">Contact No.</p>
+
+                <input type="text" class="form-control mt-3" id="address" placeholder="Address." required>
+                <input type="hidden" class="form-control mt-3" id="document" name="document">
+                <p class="hints">Address</p>
+
+                <input type="text" class="form-control mt-3" id="hours" placeholder="hours" required>
+                <input type="hidden" class="form-control mt-3" id="document" name="document">
+                <p class="hints">hours</p>
+
+                <input type="text" class="form-control mt-3" id="bandperformers" placeholder="bandperformers" required>
+                <input type="hidden" class="form-control mt-3" id="document" name="document">
+                <p class="hints">bandperformers</p>
+
+
+                <input type="text" class="form-control mt-3" id="totalprice" placeholder="totalprice" required>
+                <input type="hidden" class="form-control mt-3" id="document" name="document">
+                <p class="hints">totalprice</p>
+
+                <button type="button" onclick="toggleCart()" id="update" class="btn btn-info mx-2">Update</button>
+            </div>
+        </div>
+
+    </form>
+
+    <!-- end of register modal-->
+    <h2 style="text-align: center;">
+        </h3>
+        <!-- Content starts-->
+        <table class="mt-5 mb-5">
+            <thead class="table table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Contact Number</th>
+                    <th>Address.</th>
+                    <th>Hours Commisioned</th>
+                    <th>Band Performer:</th>
+                    <th>Price to Pay</th>
+                    <th colspan="2" style="text-align: center;">ACTIONS</th>
+                </tr>
+
+            </thead>
+            <tbody id="tblItems">
+            </tbody>
+        </table>
+        <!-- CONTENT ENDS-->
+
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+
+
+        <script src="index.js"></script>
+        <script src="reservation.js"></script>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
+        <!--connect to DB-->
+        <script>
+            const frmData = $('#frmData');
+            const tblItems = $('#tblItems');
+
+
+            function addRec(doc) {
+
+                tblItems.append(`<tr id="${doc.id}">    
+      <td class="text-white">${doc.data().name}</td>
+      <td class="text-white">${doc.data().number}</td>
+      <td class="text-white">${doc.data().address}</td>
+      <td class="text-white">${doc.data().hours}</td>
+      <td class="text-white">${doc.data().bandperformers}</td>
+      <td class="text-white">${doc.data().totalprice}</td>
+    
+
+      <td align="center" width="100px"><button class="btn btn-danger"><a href="javascript:void(0)" class="delete" id="${doc.id}">DELETE</a></button></td>
+      <td align="center" width="100px"><button class="btn btn-info"><a href="javascript:void(0)" class="edit"  onclick="toggleCart()" id="${doc.id}">EDIT</a></button></td>
+
+      </tr>`)
+
+                $('.delete').click(e => {
+                    e.stopImmediatePropagation();
+                    var id = e.target.id;
+                    db.collection('BandReservations').doc(id).delete();
+                })
+
+                $('.edit').click(e => {
+                    e.stopImmediatePropagation();
+                    var id = e.target.id;
+                    db.collection('BandReservations').doc(id).get().then(doc => {
+                        $('#name').val(doc.data().name);
+                        $('#number').val(doc.data().number);
+                        $('#address').val(doc.data().address);
+                        $('#hours').val(doc.data().hours);
+                        $('#bandperformers').val(doc.data().bandperformers);
+                        $('#totalprice').val(doc.data().totalprice);
+                        $('#document').val(doc.id);
+                    });
+                })
+            }
+
+            $('#update').on('click', () => {
+                var id = $('#document').val();
+
+                db.collection('BandReservations').doc(id).set({
+                    name: $('#name').val(),
+                    number: $('#number').val(),
+                    address: $('#address').val(),
+                    hours: $('#hours').val(),
+                    bandperformers: $('#bandperformers').val(),
+                    totalprice: $('#totalprice').val(),
+
+                }, { merge: true })
+            })
+
+
+            db.collection('BandReservations').onSnapshot(snapshot => {
+                let changes = snapshot.docChanges();
+                changes.forEach(change => {
+                    if (change.type == "added") {
+                        addRec(change.doc)
+                    }
+
+                    else if (change.type == "removed") {
+                        var id = change.doc.id;
+                        $('#' + id).remove();
+
+                    }
+                    else if (change.type == "removed") {
+                        var id = change.doc.id;
+                        $('#' + id).remove();
+
+                    }
+                    else if (change.type == "modified") {
+                        var id = change.doc.id;
+                        $('#' + id).remove();
+                        addRec(change.doc);
+
+                    }
+                })
+            })
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<style>
+    th {
+        color: rgb(68, 166, 190);
+        background-color: rgb(46, 46, 46);
+    }
+
+    table td,
+    table th {
+        border: 1px solid rgb(68, 68, 68);
+        padding: 8px;
+    }
+
+    table {
+        margin-left: 5%;
+        margin-right: 5%;
+        border: solid;
+        width: 90%;
+        margin-top: 1rem;
+        margin-top: 20px;
+    }
+
+    body {
+        background-image: url('https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1665&q=80');
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>

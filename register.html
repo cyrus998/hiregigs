@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <script src="index.js"></script>
+  <div class="min-h-screen bg-gray-900 flex">
+    <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+      <div class="mx-auto w-full max-w-sm">
+        <div>
+          <h2 class="mt-15 mb-10 text-5xl leading-9 font-extrabold text-cyan-300">
+            <img class="w-16 mb-5"
+              src="https://media.discordapp.net/attachments/971130306751000636/981250707518816296/unknown.png" alt="">
+            Cyrus.livegigs
+          </h2>
+          <h2 class="mt-15 mb-10 text-5xl leading-9 font-extrabold text-white">
+            Register
+          </h2>
+          <p class="mt-2 text-sm leading-5 text-gray-200 max-w">
+            Already Registered?
+
+            <a href="/login.html"
+              class="font-medium text-indigo-400 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+              Log In Now.
+            </a>
+          </p>
+        </div>
+
+        <div class="mt-8">
+
+          <div class="mt-6">
+            <form method="POST" action="">
+              <div>
+                <label for="email" class="block text-sm font-medium leading-5 text-gray-300">
+                  Email address
+                </label>
+                <div class="mt-1 rounded-md shadow-sm">
+                  <input id="email" type="email" name="email" autofocus required
+                    class="block mt-1 w-full appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                </div>
+              </div>
+
+              <div class="mt-6">
+                <label for="password" class="block text-sm font-medium leading-5 text-gray-300">
+                  Password
+                </label>
+                <div class="mt-1 rounded-md shadow-sm">
+                  <input type="password" id="userpass" name="userpass" autofocus required
+                    class="block mt-1 w-full appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                </div>
+              </div>
+
+              <div class="mt-6">
+                <span class="block w-full rounded-md shadow-sm">
+                  <button id="register"
+                    class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                    Register
+                  </button>
+                </span>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hidden lg:block relative w-0 flex-1">
+      <img class="absolute inset-0 h-full w-full object-cover"
+        src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+        alt="" />
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
+  import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
+
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCMSJ40960AFjKkbtr7cUzgw1jfdjyvXXM",
+    authDomain: "cyrusgg-feeb1.firebaseapp.com",
+    databaseURL: "https://cyrusgg-feeb1-default-rtdb.firebaseio.com",
+    projectId: "cyrusgg-feeb1",
+    storageBucket: "cyrusgg-feeb1.appspot.com",
+    messagingSenderId: "324727266648",
+    appId: "1:324727266648:web:d3754ccd0940c9b87f192d"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth();
+  const database = getDatabase(app);
+
+
+
+  register.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('userpass').value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in  user user.uid
+        const user = userCredential.user;
+
+        set(ref(database, 'users/' + user.uid), {
+          email: email,
+        })
+        // ...
+        set(ref(database, 'users/' + user.uid), {
+          email: email,
+          //password: password
+        })
+          .then(() => {
+            // Data saved successfully!
+            alert('Account Created! Redirecting...');
+            window.location = 'home.html';
+
+          })
+          .catch((error) => {
+            // The write failed...
+            alert(error);
+          });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+        alert(errorMessage);
+      });
+
+  });
+
+  const user = auth.currentUser;
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      const uid = user.uid;
+      // ...
+    } else {
+      // User is signed out
+      // ...
+    }
+  });
+
+  // login.addEventListener('click',(e)=>{
+
+  // e.preventDefault();
+  // var email = document.getElementById('email').value;
+  // var password = document.getElementById('userpass').value;
+
+  // signInWithEmailAndPassword(auth, email, password)
+  // .then((userCredential) => {
+  // // Signed in 
+  // const user = userCredential.user;
+
+  // const dt = new Date();
+
+  // update(ref(database, 'users/' + user.uid), {
+  //   last_login: dt,
+  //   //password: password
+  // })
+
+  // alert('You Are Now Logged In!');
+  // // ...
+  // })
+  // .catch((error) => {
+  // const errorCode = error.code;
+  // const errorMessage = error.message;
+
+  // alert(errorMessage);
+
+  // });
+
+  // });
+
+  logout.addEventListener('click', (e) => {            /// to logout
+    signOut(auth).then(() => {
+      // Sign-out successful.
+
+      alert('User Yeeted (signed out)')
+    }).catch((error) => {
+      // An error happened.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+      alert(errorMessage);
+    });
+  })
+</script>
