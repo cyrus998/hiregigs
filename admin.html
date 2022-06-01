@@ -38,7 +38,7 @@
                         <a class="nav-link" href="/home.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/products.html">Products</a>
+                        <a class="nav-link" href="/products.html">Book a Gig</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="/admin.html">Admin Dashboard</a>
@@ -154,12 +154,12 @@
             function addRec(doc) {
 
                 tblItems.append(`<tr id="${doc.id}">    
-      <td class="text-white">${doc.data().name}</td>
-      <td class="text-white">${doc.data().number}</td>
-      <td class="text-white">${doc.data().address}</td>
-      <td class="text-white">${doc.data().hours}</td>
-      <td class="text-white">${doc.data().bandperformers}</td>
-      <td class="text-white">${doc.data().totalprice}</td>
+      <td>${doc.data().name}</td>
+      <td>${doc.data().number}</td>
+      <td>${doc.data().address}</td>
+      <td>${doc.data().hours}</td>
+      <td>${doc.data().bandperformers}</td>
+      <td>${doc.data().totalprice}</td>
     
 
       <td align="center" width="100px"><button class="btn btn-danger"><a href="javascript:void(0)" class="delete" id="${doc.id}">DELETE</a></button></td>
@@ -249,6 +249,7 @@
     table th {
         border: 1px solid rgb(68, 68, 68);
         padding: 8px;
+        color: white;
     }
 
     table {
@@ -261,7 +262,7 @@
     }
 
     body {
-        background-image: url('https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1665&q=80');
+        background-image: url('https://images.unsplash.com/photo-1478737270239-2f02b77fc618?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
         height: 100%;
         background-position: center;
         background-repeat: no-repeat;

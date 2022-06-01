@@ -95,7 +95,7 @@ frmData.on('submit', (e) => {
     $('#hours').val('');
     $('#bandperformers').val('');
     $('#totalprice').val('');
-    alert('Your response have been submitted.');
+    alert('Your reservation has been created.');
 
 })
 
