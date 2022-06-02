@@ -3,23 +3,13 @@
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-var firebaseConfig = {
-    apiKey: "AIzaSyCMSJ40960AFjKkbtr7cUzgw1jfdjyvXXM",
-    authDomain: "cyrusgg-feeb1.firebaseapp.com",
-    projectId: "cyrusgg-feeb1",
-    storageBucket: "cyrusgg-feeb1.appspot.com",
-    messagingSenderId: "324727266648",
-    appId: "1:324727266648:web:d3754ccd0940c9b87f192d"
-};
+
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+
 
 //make auth and firestore references
 const auth = firebase.auth();
 const db = firebase.firestore();
-
-// update firestore settings
-db.settings({ timestampsInSnapshots: true });
 
 
 const frmData = $('#frmData');
