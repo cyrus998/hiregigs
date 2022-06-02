@@ -20,7 +20,7 @@ function addRec(doc) {
     tblItems.append(`<tr id="${doc.id}">    
         <td>${doc.data().name}</td>
         <td>${doc.data().number}</td>
-        <td>${doc.data().address}</td>
+        <td>${doc.data().venuelocation}</td>
         <td>${doc.data().hours}</td>
         <td>${doc.data().datetime}</td>
         <td>${doc.data().bandperformers}</td>
@@ -43,7 +43,7 @@ function addRec(doc) {
         db.collection('BandReservations').doc(id).get().then(doc => {
             $('#name').val(doc.data().name);
             $('#number').val(doc.data().number);
-            $('#address').val(doc.data().address);
+            $('#venuelocation').val(doc.data().venuelocation);
             $('#hours').val(doc.data().hours);
             $('#datetime').val(doc.data().datetime);
             $('#bandperformers').val(doc.data().bandperformers);
@@ -59,7 +59,7 @@ $('#update').on('click', () => {
     db.collection('BandReservations').doc(id).set({
         name: $('#name').val(),
         number: $('#number').val(),
-        address: $('#address').val(),
+        venuelocation: $('#venuelocation').val(),
         hours: $('#hours').val(),
         datetime: $('#datetime').val(),
         bandperformers: $('#bandperformers').val(),
@@ -74,7 +74,7 @@ frmData.on('submit', (e) => {
     db.collection('BandReservations').add({
         name: $('#name').val(),
         number: $('#number').val(),
-        address: $('#address').val(),
+        venuelocation: $('#venuelocation').val(),
         hours: $('#hours').val(),
         datetime: $('#datetime').val(),
         bandperformers: $('#bandperformers').val(),
@@ -85,7 +85,7 @@ frmData.on('submit', (e) => {
 
     $('#name').val('');
     $('#number').val('');
-    $('#address').val('');
+    $('#venuelocation').val('');
     $('#hours').val('');
     $('#datetime').val('');
     $('#bandperformers').val('');

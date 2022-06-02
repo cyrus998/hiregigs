@@ -15,6 +15,10 @@
     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.min.js"
+    integrity="sha512-Hqe3s+yLpqaBbXM6VA0cnj/T56ii5YjNrMT9v+us11Q81L0wzUG0jEMNECtugqNu2Uq5MSttCg0p4KK0kCPVaQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 
 <body>
@@ -76,14 +80,14 @@
       <div class="col-md-7" style="padding:10vw">
         <div class="lc-block text-uppercase">
           <p editable="inline" class="mb-0 text-white text-4xl" style="letter-spacing:5px">Nyango Star Drummer and Band
-            (Cello, Viola & Violin)
           </p>
         </div>
         <!-- /lc-block -->
         <div class="lc-block me-lg-5">
           <div editable="rich" class="text-white">
             <h1 class="text-2xl mt-3 mb-5 text-info">Perfect for rock parties, and live stage events</h1>
-            <p>A fun rock band for both kids and adults alike! Specialises in rock genre, with a cute mascot surely enough to capture your audiences! Plays creative genres, highly engaging and fun! </p>
+            <p>A fun rock band for both kids and adults alike! Specialises in rock genre, with a cute mascot surely enough
+              to capture your audiences! Plays creative genres, highly engaging and fun!  </p>
           </div>
         </div>
         <div class="lc-block mt-5">
@@ -94,7 +98,7 @@
         <div class="card mt-5 bg-dark">
           <div class="card-body">
             <h5 class="card-title text-white text-3xl">
-              <span class="text-info">3500  </span>PHP Per Hour
+              <span class="text-info">3500 </span>PHP Per Hour
             </h5>
             <p class="card-text text-white">*Note: Equipments, instruments will be provided by the band.*</p>
           </div>
@@ -194,8 +198,8 @@
                   </div>
                   <!-- Email inputs below-->
                   <div class="form-floating mb-3">
-                    <input class="form-control border-0 border-bottom" type="text" name="address" id="address"
-                      placeholder="address" required>
+                    <input class="form-control border-0 border-bottom" type="text" name="venuelocation" id="venuelocation"
+                      placeholder="venuelocation" required>
                     <label for="name" id="name-label"> Venue Location / Address </label>
                   </div>
                   <!-- Dropdown options start-->
@@ -211,11 +215,11 @@
                       <option value="4"> 4 Hours </option>
                     </select>
                   </div>
-
+                  
                   <div class="mt-4">
                     <label for="dropdown" id="dropdown-label" class="mb-2"> Select Preferred Date & Time
                     </label>
-                    <input class="form-control" id="datetime" type="datetime-local">
+                    <input required class="form-control" id="datetime" type="datetime-local">
                   </div>
 
                   <!-- Checkbox select below-->
@@ -277,6 +281,10 @@
       crossorigin="anonymous"></script>
     <script src="index.js"></script>
     <script src="reservation.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.min.js"
+      integrity="sha512-Hqe3s+yLpqaBbXM6VA0cnj/T56ii5YjNrMT9v+us11Q81L0wzUG0jEMNECtugqNu2Uq5MSttCg0p4KK0kCPVaQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>
@@ -349,5 +357,9 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  .form-control[type="datetime-local"] {
+    padding-right: 0.5rem;
   }
 </style>

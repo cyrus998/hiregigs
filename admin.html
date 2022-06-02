@@ -71,7 +71,7 @@
                 <input type="hidden" class="form-control mt-3" id="document" name="document">
                 <p class="hints">Contact No.</p>
 
-                <input type="text" class="form-control mt-3" id="address" placeholder="Address." required>
+                <input type="text" class="form-control mt-3" id="venuelocation" placeholder="Address." required>
                 <input type="hidden" class="form-control mt-3" id="document" name="document">
                 <p class="hints">Address</p>
 
@@ -150,7 +150,7 @@
                 tblItems.append(`<tr id="${doc.id}">    
       <td>${doc.data().name}</td>
       <td>${doc.data().number}</td>
-      <td>${doc.data().address}</td>
+      <td>${doc.data().venuelocation}</td>
       <td>${doc.data().hours}</td>
       <td>${doc.data().datetime}</td>
       <td>${doc.data().bandperformers}</td>
@@ -174,7 +174,7 @@
                     db.collection('BandReservations').doc(id).get().then(doc => {
                         $('#name').val(doc.data().name);
                         $('#number').val(doc.data().number);
-                        $('#address').val(doc.data().address);
+                        $('#venuelocation').val(doc.data().venuelocation);
                         $('#hours').val(doc.data().hours);
                         $('#datetime').val(doc.data().datetime);
                         $('#bandperformers').val(doc.data().bandperformers);
@@ -190,7 +190,7 @@
                 db.collection('BandReservations').doc(id).set({
                     name: $('#name').val(),
                     number: $('#number').val(),
-                    address: $('#address').val(),
+                    venuelocation: $('#venuelocation').val(),
                     hours: $('#hours').val(),
                     datetime: $('#datetime').val(),
                     bandperformers: $('#bandperformers').val(),

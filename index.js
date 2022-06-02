@@ -21,17 +21,17 @@ function submitForm(e) {
     var bandperformers = getElementVal("bandperformers");
     var name = getElementVal("name");
     var number = getElementVal("number");
-    var address = getElementVal("address");
+    var venuelocation = getElementVal("venuelocation");
     var hours = getElementVal("hours");
     var datetime = getElementVal("datetime");
     var totalprice = getElementVal("totalprice");
 
-    saveMessages(bandperformers, name, number, address, hours, datetime, totalprice);
+    saveMessages(bandperformers, name, number, venuelocation, hours, datetime, totalprice);
 
     $('#bandperformers').removeAttr('bandperformers');
     $('#name').removeAttr('value');
     $('#number').removeAttr('value');
-    $('#address').removeAttr('value');
+    $('#venuelocation').removeAttr('value');
     $('#hours').removeAttr('value');
     $('#datetime').removeAttr('datetime');
     $('#totalprice').removeAttr('value');
@@ -41,7 +41,7 @@ function submitForm(e) {
 }
 
 
-const saveMessages = (bandperformers, name, number, address, hours, datetime, totalprice) => {
+const saveMessages = (bandperformers, name, number, venuelocation, hours, datetime, totalprice) => {
 
     var newGigForm = cyrusgg.push();
 
@@ -50,7 +50,7 @@ const saveMessages = (bandperformers, name, number, address, hours, datetime, to
         bandperformers: bandperformers,
         name: name,
         number: number,
-        address: address,
+        venuelocation: venuelocation,
         number: number,
         hours: hours,
         datetime: datetime,
