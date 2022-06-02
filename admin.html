@@ -77,16 +77,20 @@
 
                 <input type="text" class="form-control mt-3" id="hours" placeholder="hours" required>
                 <input type="hidden" class="form-control mt-3" id="document" name="document">
-                <p class="hints">hours</p>
+                <p class="hints">Hours</p>
+
+                <input type="text" class="form-control mt-3" id="datetime" placeholder="datetime" required>
+                <input type="hidden" class="form-control mt-3" id="document" name="document">
+                <p class="hints">Datetime</p>
 
                 <input type="text" class="form-control mt-3" id="bandperformers" placeholder="bandperformers" required>
                 <input type="hidden" class="form-control mt-3" id="document" name="document">
-                <p class="hints">bandperformers</p>
+                <p class="hints">Bandperformers</p>
 
 
                 <input type="text" class="form-control mt-3" id="totalprice" placeholder="totalprice" required>
                 <input type="hidden" class="form-control mt-3" id="document" name="document">
-                <p class="hints">totalprice</p>
+                <p class="hints">Price to Pay</p>
 
                 <button type="button" id="update" class="btn btn-info mx-2">Update</button>
             </div>
@@ -105,6 +109,7 @@
                     <th>Contact Number</th>
                     <th>Address.</th>
                     <th>Hours Commisioned</th>
+                    <th>Time Schedule</th>
                     <th>Band Performer:</th>
                     <th>Price to Pay</th>
                     <th colspan="2" style="text-align: center;">ACTIONS</th>
@@ -147,6 +152,7 @@
       <td>${doc.data().number}</td>
       <td>${doc.data().address}</td>
       <td>${doc.data().hours}</td>
+      <td>${doc.data().datetime}</td>
       <td>${doc.data().bandperformers}</td>
       <td>${doc.data().totalprice}</td>
     
@@ -170,6 +176,7 @@
                         $('#number').val(doc.data().number);
                         $('#address').val(doc.data().address);
                         $('#hours').val(doc.data().hours);
+                        $('#datetime').val(doc.data().datetime);
                         $('#bandperformers').val(doc.data().bandperformers);
                         $('#totalprice').val(doc.data().totalprice);
                         $('#document').val(doc.id);
@@ -185,6 +192,7 @@
                     number: $('#number').val(),
                     address: $('#address').val(),
                     hours: $('#hours').val(),
+                    datetime: $('#datetime').val(),
                     bandperformers: $('#bandperformers').val(),
                     totalprice: $('#totalprice').val(),
 

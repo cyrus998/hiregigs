@@ -22,6 +22,7 @@ function addRec(doc) {
         <td>${doc.data().number}</td>
         <td>${doc.data().address}</td>
         <td>${doc.data().hours}</td>
+        <td>${doc.data().datetime}</td>
         <td>${doc.data().bandperformers}</td>
         <td>${doc.data().totalprice}</td>
   
@@ -44,6 +45,7 @@ function addRec(doc) {
             $('#number').val(doc.data().number);
             $('#address').val(doc.data().address);
             $('#hours').val(doc.data().hours);
+            $('#datetime').val(doc.data().datetime);
             $('#bandperformers').val(doc.data().bandperformers);
             $('#totalprice').val(doc.data().totalprice);
             $('#document').val(doc.id);
@@ -59,6 +61,7 @@ $('#update').on('click', () => {
         number: $('#number').val(),
         address: $('#address').val(),
         hours: $('#hours').val(),
+        datetime: $('#datetime').val(),
         bandperformers: $('#bandperformers').val(),
         totalprice: $('#totalprice').val(),
     }, { merge: true })
@@ -73,6 +76,7 @@ frmData.on('submit', (e) => {
         number: $('#number').val(),
         address: $('#address').val(),
         hours: $('#hours').val(),
+        datetime: $('#datetime').val(),
         bandperformers: $('#bandperformers').val(),
         totalprice: $('#totalprice').val(),
 
@@ -83,6 +87,7 @@ frmData.on('submit', (e) => {
     $('#number').val('');
     $('#address').val('');
     $('#hours').val('');
+    $('#datetime').val('');
     $('#bandperformers').val('');
     $('#totalprice').val('');
     alert('Your reservation has been created.');

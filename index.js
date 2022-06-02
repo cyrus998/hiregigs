@@ -23,15 +23,17 @@ function submitForm(e) {
     var number = getElementVal("number");
     var address = getElementVal("address");
     var hours = getElementVal("hours");
+    var datetime = getElementVal("datetime");
     var totalprice = getElementVal("totalprice");
 
-    saveMessages(bandperformers, name, number, address, hours, totalprice);
+    saveMessages(bandperformers, name, number, address, hours, datetime, totalprice);
 
     $('#bandperformers').removeAttr('bandperformers');
     $('#name').removeAttr('value');
     $('#number').removeAttr('value');
     $('#address').removeAttr('value');
     $('#hours').removeAttr('value');
+    $('#datetime').removeAttr('datetime');
     $('#totalprice').removeAttr('value');
 
     alert('booking added');
@@ -39,7 +41,7 @@ function submitForm(e) {
 }
 
 
-const saveMessages = (bandperformers, name, number, address, hours, totalprice) => {
+const saveMessages = (bandperformers, name, number, address, hours, datetime, totalprice) => {
 
     var newGigForm = cyrusgg.push();
 
@@ -51,6 +53,7 @@ const saveMessages = (bandperformers, name, number, address, hours, totalprice) 
         address: address,
         number: number,
         hours: hours,
+        datetime: datetime,
         totalprice: totalprice,
     });
 };
